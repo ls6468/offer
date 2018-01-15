@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
+#待修改
 class Solution:
-    # s Դ�ַ���
+    # s Ô´×Ö·û´®
     def replaceSpace(self, s):
         # write code here
         self.s=s

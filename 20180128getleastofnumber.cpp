@@ -1,4 +1,4 @@
-//”–Œ Ã‚
+//√ì√ê√é√ä√å√¢
 class Solution {
 public:
     vector<int> GetLeastNumbers_Solution(vector<int> input, int k) {

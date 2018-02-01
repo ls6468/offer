@@ -1,0 +1,39 @@
+//超时或循环有错
+class Solution {
+public:
+    int InversePairs(vector<int> data) {
+        int len=data.size();
+        if(len<=0)
+            return 0;
+        vector<int> a=data;
+        int count=inversepairscore(data,a,0,len-1);
+        return count;
+    }
+    int inversepairscore(vector<int> data,vector<int> a,int start,int end){
+        if(start==end){
+            a[start]=data[start];
+            return 0;
+        }
+        int length=(end-start)/2;
+        int left=inversepairscore(data,a,start,start+length);
+        int right=inversepairscore(data,a,start+length+1,end);
+        int i=start+length;
+        int j=end;
+        int indexa=end;
+        int count=0;
+        while(i>=start&&j>=start+length+1){
+            if(data[i]>data[j]){
+                a[indexa--]=data[i--];
+                count+=j-start-length;
+            }
+            else{
+                a[indexa--]=data[i--];
+            }
+        }
+        for(;i>=start;i--)
+            a[indexa--]=data[i];
+        for(;j>=start+length+1;j--)
+            a[indexa--]=data[j];
+        return left+right+count;
+    }
+};

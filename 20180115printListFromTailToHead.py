@@ -5,7 +5,7 @@
 #         self.next = None
 
 class Solution:
-    # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    # 杩斿洖浠庡熬閮ㄥ埌澶撮儴鐨勫垪琛ㄥ�煎簭鍒楋紝渚嬪[1,2,3]
     def printListFromTailToHead(self, listNode):
         # write code here
         self.listnode=listNode

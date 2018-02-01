@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 class Solution:
-    # array ��ά�б�
+    # array ¶þÎ¬ÁÐ±í
     def Find(self, target, array):
         # write code here
         self.target=target

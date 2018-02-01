@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-#��ʱ
+#³¬Ê±
 class Solution:
     def minNumberInRotateArray(self, rotateArray):
         # write code here

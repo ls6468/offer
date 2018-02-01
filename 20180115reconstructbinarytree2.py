@@ -1,12 +1,12 @@
 # -*- coding:utf-8 -*-
-#´ıĞŞ¸Ä£ºÌáÊ¾listÎŞÊôĞÔval
+#å¾…ä¿®æ”¹ï¼šæç¤ºlistæ— å±æ€§val
 # class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.left = None
 #         self.right = None
 class Solution:
-    # ·µ»Ø¹¹ÔìµÄTreeNode¸ù½Úµã
+    # è¿”å›æ„é€ çš„TreeNodeæ ¹èŠ‚ç‚¹
     def reConstructBinaryTree(self, pre, tin):
         # write code here
         self.pre=pre

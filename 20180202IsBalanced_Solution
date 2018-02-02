@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool IsBalanced_Solution(TreeNode* pRoot) {
+        int depth=0;
+        return isbalanced(pRoot,&depth);
+    }
+    bool isbalanced(TreeNode* p,int *pd){
+        if(p==NULL){
+            *pd=0;
+            return true;
+        }
+        int left,right;
+        if(isbalanced(p->left,&left)&&isbalanced(p->right,&right)){
+            int dec=left-right;
+            if(dec<=1&&dec>=-1){
+                *pd=1+(left>right?left:right);
+                return true;
+            }
+        }
+        return false;
+    }
+};

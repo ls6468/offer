@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<vector<int> > FindContinuousSequence(int sum) {
+        vector<vector<int> > a;
+        if(sum>=3){
+            int small=1,big=2;
+            int middle=(sum+1)/2;
+            int cursum=small+big;
+            while(small<middle){
+                if(cursum==sum){
+                    a.push_back(getsequence(small,big));
+                }
+                while(cursum>sum&&small<middle){
+                    cursum-=small;
+                    small++;
+                    if(cursum==sum)
+                        a.push_back(getsequence(small,big));
+                }
+                big++;
+                cursum+=big;
+            }
+        }
+        return a;
+    }
+    vector<int> getsequence(int a,int b){
+        vector<int> sequence;
+        for(int i=a;i<=b;i++)
+            sequence.push_back(i);
+        return sequence;
+    }
+};

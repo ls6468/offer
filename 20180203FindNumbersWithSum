@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> FindNumbersWithSum(vector<int> array,int sum) {
+        vector<int> result;
+        if(array.size()>=2){
+            int first=0,last=array.size()-1;
+            long long maxpro=array[last]*array[last];
+            while(first<last){
+                long long cursum=array[first]+array[last];
+                long long curpro=array[first]*array[last];
+                if(cursum==sum){
+                    if(curpro<=maxpro){
+                        result.clear();
+                        result.push_back(array[first]);
+                        result.push_back(array[last]);
+                        maxpro=array[first]*array[last];
+                    }
+                    first++;
+                    last--;
+                }
+                else if(cursum>sum)
+                    last--;
+                else
+                    first++;
+            }
+        }
+        return result;
+    }
+};

@@ -1,0 +1,29 @@
+class Solution {
+public:
+    string LeftRotateString(string str, int n) {
+        int len=str.length();
+        if(len>0){
+            if(n>0&&n<len){
+                char *p1=&str[0];
+                char *p2=&str[n-1];
+                char *p3=&str[n];
+                char *p4=&str[len-1];
+                reverse(p1,p2);
+                reverse(p3,p4);
+                reverse(p1,p4);
+            }
+        }
+        return str;
+    }
+    void reverse(char *p,char *q){
+        if(p==NULL||q==NULL)
+            return;
+        while(p<q){
+            char t=*p;
+            *p=*q;
+            *q=t;
+            p++;
+            q--;
+        }
+    }
+};

@@ -1,0 +1,41 @@
+class Solution {
+public:
+    string ReverseSentence(string str) {
+        int len=str.length();
+        char* strs=&str[0];
+        if(len>0){
+            char *p1=strs;
+            char *p2=strs;
+            while(*p2!='\0')
+                p2++;
+            p2--;
+            reverse(p1,p2);
+            char* str2=&str[0];
+            p1=p2=str2;
+            while(*p1!='\0'){
+                if(*p1==' '){
+                    p1++;
+                    p2++;
+                }else if(*p2==' '||*p2=='\0'){
+                    reverse(p1,p2-1);
+                    p1=p2++;
+                }else{
+                    p2++;
+                }
+            }
+        }
+        return str;
+    }
+    void reverse(char *p,char *q){
+        if(p==NULL||q==NULL){
+            return;
+        }
+        while(p<q){
+            char t=*p;
+            *p=*q;
+            *q=t;
+            p++;
+            q--;
+        }
+    }
+};

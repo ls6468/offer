@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool IsContinuous( vector<int> numbers ) {
+        int len=numbers.size();
+        if(len<=0)
+            return false;
+        sort(numbers.begin(),numbers.end());
+        int numberofzero=0,numberoflack=0;
+        for(int i=0;i<len&&numbers[i]==0;i++)
+            numberofzero++;
+        int small=numberofzero,big=small+1;
+        while(big<len){
+            if(numbers[small]==numbers[big])
+                return false;
+            numberoflack+=numbers[big]-numbers[small]-1;
+            small=big;
+            big++;
+        }
+        return (numberofzero<numberoflack)?false:true;
+    }
+    
+};

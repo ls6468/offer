@@ -1,0 +1,11 @@
+class Solution {
+public:
+    typedef int (*fun)(int);
+    static int Sum_termitor(int n){
+        return 0;
+    }
+    static int Sum_Solution(int n) {
+        static fun f[2]={Sum_termitor,Sum_Solution};
+        return n+f[!!n](n-1);
+    }
+};

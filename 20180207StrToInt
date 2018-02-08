@@ -1,0 +1,43 @@
+//有问题
+class Solution {
+public:
+    enum status {k1=0,k2};
+    int curstatus=k1;
+    int StrToInt(string str) {
+        curstatus=k2;
+        long long result=0;
+        int i=0;
+        if(str.length()>0&&str[i]!='\0'){
+            bool flag=false;
+            if(str[i]=='+')
+                i++;
+            else if(str[i]=='-'){
+                flag=true;
+                i++;
+            }
+            if(str[i]!='\0')
+                result=change(str,flag,i);
+        }
+        return (int)result;
+    }
+    long long change(string str,bool flag,int i){
+        long long num=0;
+        while(str[i]!='\0'){
+            if(str[i]>='0'&&str[i]<='9'){
+                int a=flag?-1:1;
+                num=num*10+a*(str[i]-'0');
+                if((!flag&&num>0x7FFFFFFF)||(flag&&num<0x80000000)){
+                    num=0;
+                    break;
+                }
+                i++;
+            }else{
+                num=0;
+                break;
+            }
+        }
+        if(str[i]=='\0')
+            curstatus=k1;
+        return num;
+    }
+};

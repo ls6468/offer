@@ -1,0 +1,23 @@
+class Solution
+{
+public:
+  //Insert one char from stringstream
+    map<char,int> a;
+    queue<char> b;
+    void Insert(char ch)
+    {
+        a[ch]++;
+        if(a[ch]==1)
+            b.push(ch);
+    }
+  //return the first appearence once char in current stringstream
+    char FirstAppearingOnce()
+    {
+        while(b.size()>0&&a[b.front()]>1)
+            b.pop();
+        if(!b.empty())
+            return b.front();
+        return '#';
+    }
+
+};

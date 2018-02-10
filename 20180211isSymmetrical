@@ -1,0 +1,44 @@
+/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    bool isSymmetrical(TreeNode* pRoot)
+    {
+        if(pRoot==NULL)
+            return true;
+        if(pRoot->left==NULL&&pRoot->right==NULL)
+            return true;
+        else if(pRoot->left!=NULL&&pRoot->right==NULL)
+            return false;
+        else if(pRoot->left==NULL&&pRoot->right!=NULL)
+            return false;
+        else
+            return cmp(pRoot->left,pRoot->right);
+    }
+    bool cmp(TreeNode* p,TreeNode* q){
+        if(p==NULL&&q==NULL)
+            return true;
+        else if(p==NULL&&q!=NULL)
+            return false;
+        else if(p!=NULL&&q==NULL)
+            return false;
+        if(p->val!=q->val)
+            return false;
+        bool left=(p->left==NULL&&q->right==NULL);
+        if(!left)
+            left=cmp(p->left,q->right);
+        bool right=(p->right==NULL&&q->left==NULL);
+        if(!right)
+            right=cmp(p->right,q->left);
+        return left&&right;
+    }
+
+};

@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> maxInWindows(const vector<int>& num, unsigned int size)
+    {
+        vector<int> result;
+        deque<int> a;
+        if(size>=1&&size<=num.size()){
+            a.push_back(0);
+            for(unsigned int i=1;i<size;i++){
+                while(!a.empty()&&num[a.back()]<=num[i])
+                    a.pop_back();
+                a.push_back(i);
+            }
+            for(unsigned int i=size;i<num.size();i++){
+                result.push_back(num[a.front()]);
+                while(!a.empty()&&num[a.back()]<=num[i])
+                    a.pop_back();
+                if(!a.empty()&&a.front()<=i-size)
+                    a.pop_front();
+                a.push_back(i);
+            }
+            result.push_back(num[a.front()]);
+        }
+        return result;
+    }
+};

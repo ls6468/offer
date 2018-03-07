@@ -1,8 +1,40 @@
-# -*- coding:utf-8 -*-
-#待修改
-class Solution:
-    # s Ô´×Ö·û´®
-    def replaceSpace(self, s):
-        # write code here
-        self.s=s
-        return self.s.replace(" ","%20")
+class Solution {
+public:
+	void replaceSpace(char *str,int length) {
+        int spaces = 0;
+        char *p = str;
+
+        while (*p != '\0') {
+            if (*p == ' ') {
+                spaces++;
+            }
+            p++;
+        }
+
+        char *q = p + 2*spaces;
+        while (p != str) {
+            if (*p == ' ') {
+                *q = '0';
+                q--;
+                *q = '2';
+                q--;
+                *q = '%';
+                q--;
+                p--;
+            }
+            else {
+                *q = *p;
+                q--;
+                p--;
+            }
+        }
+        if (*p == ' ') {
+            *q = '0';
+            q--;
+            *q = '2';
+            q--;
+            *q = '%';
+            q--;
+        }
+    }
+};
